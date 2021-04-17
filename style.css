@@ -1,0 +1,12 @@
+body {
+    background-color: salmon;
+}
+h1 {
+    text-align: center;
+}
+form {
+    margin-left: 100px;
+}
+.grid-element {
+    background-color: black;
+}
