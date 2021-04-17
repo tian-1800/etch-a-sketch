@@ -1,20 +1,33 @@
 let row = 16;
 let col = 16;
+let button = document.getElementById('button');
 let gridContainer = document.querySelector('#grid-container');
-gridContainer.style.cssText = ('display: grid; width: 600px; height: 600px; grid-gap: 1px; background-color: burlywood; grid-template-columns: repeat('+ col +',auto); grid-template-rows: repeat('+ row +',auto)');
+function setGrid(row,col) {
+    gridContainer.style.cssText = ('display: grid; width: 600px; height: 600px; grid-gap: 1px; background-color: burlywood; grid-template-columns: repeat('+ col +',auto); grid-template-rows: repeat('+ row +',auto)');
+}
 createGrid(row,col);
-let gridElement = document.querySelectorAll('.grid-element');
-gridElement.forEach(el => {
-    el.addEventListener('mouseover', function ()  {
-        el.style.cssText = ('background-color: white')})
-});
+button.addEventListener('click', function() {
+    console.log("aw aw");
+    row = document.getElementById('row').value;
+    col = document.getElementById('col').value;
+    console.log([row,col]);
+    createGrid(row,col);
+})
 
 function createGrid(row,col) {
+    setGrid(row,col);
     let htmlElements = "";
+    gridContainer.innerHTML = "";
     for (let i=0; i<row*col; i++) {
         htmlElements += '<div class="grid-element"></div>';        
         gridContainer.innerHTML = htmlElements;        
-    }    
+    }       
+    let gridElement = document.querySelectorAll('.grid-element'); 
+    gridElement.forEach(el => {
+        el.addEventListener('mouseover', function ()  {
+            el.style.cssText = ('background-color: white')})
+    });
+    console.log("aw");
 }
 //object.addEventListener("mouseover", myScript);
 
