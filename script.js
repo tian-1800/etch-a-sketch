@@ -24,11 +24,18 @@ function createGrid(row,col) {
     }       
     let gridElement = document.querySelectorAll('.grid-element'); 
     gridElement.forEach(el => {
-        el.addEventListener('mouseover', function ()  {
-            el.style.cssText = ('background-color: white')})
+        el.addEventListener('mouseover', function ()  {            
+            el.style.cssText = ('background-color: ' + randomColor());
+        })
     });
     console.log("aw");
 }
+
+function randomColor() {
+    c = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+    return (c);
+}
+
 //object.addEventListener("mouseover", myScript);
 
 // var element  = document.createElement("style");
